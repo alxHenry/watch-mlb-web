@@ -14,5 +14,6 @@ export const getMockGame = (): GameItem => ({
   awayTeamDivisionName: "East",
   awayTeamDivisionRank: "2nd",
   statusDisplay: "Bot 9",
-  streamUrl: "http://6stream.xyz/video/rangers-vs-rockies/",
+  homeStreamUrl: "http://6stream.xyz/video/rangers-vs-rockies/",
+  awayStreamUrl: "http://6stream.xyz/video/rangers-vs-rockies-2/",
 });

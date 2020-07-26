@@ -11,7 +11,7 @@ interface GameCardProps {
 const cardStyle = { margin: "24px" };
 
 const GameCard: FC<GameCardProps> = ({ game }) => {
-  const watchLinks = <StreamLinks homeStreamUrl={game.streamUrl} awayStreamUrl={game.streamUrl} />;
+  const watchLinks = <StreamLinks homeStreamUrl={game.homeStreamUrl} awayStreamUrl={game.awayStreamUrl} />;
 
   return (
     <Card size="small" title={game.statusDisplay} style={cardStyle} extra={watchLinks}>

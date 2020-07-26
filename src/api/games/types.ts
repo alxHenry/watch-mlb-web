@@ -12,5 +12,6 @@ export interface GameItem {
   readonly awayTeamDivisionName: string;
   readonly awayTeamDivisionRank: string;
   readonly statusDisplay: string;
-  readonly streamUrl: string;
+  readonly homeStreamUrl: string;
+  readonly awayStreamUrl: string;
 }
