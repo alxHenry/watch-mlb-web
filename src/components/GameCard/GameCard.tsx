@@ -19,6 +19,7 @@ const GameCard: FC<GameCardProps> = ({ game }) => {
         teamName={game.homeTeamFullName}
         teamLogoUrl={game.homeTeamLogoUrl}
         teamScore={game.homeTeamScore}
+        teamRecord={game.homeTeamRecord}
         teamConferenceAbbr={game.homeTeamConferenceAbbr}
         teamDivisionName={game.homeTeamDivisionName}
         teamDivisionRank={game.homeTeamDivisionRank}
@@ -27,6 +28,7 @@ const GameCard: FC<GameCardProps> = ({ game }) => {
         teamName={game.awayTeamFullName}
         teamLogoUrl={game.awayTeamLogoUrl}
         teamScore={game.awayTeamScore}
+        teamRecord={game.awayTeamRecord}
         teamConferenceAbbr={game.awayTeamConferenceAbbr}
         teamDivisionName={game.awayTeamDivisionName}
         teamDivisionRank={game.awayTeamDivisionRank}

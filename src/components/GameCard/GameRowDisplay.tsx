@@ -5,6 +5,7 @@ interface GameRowDisplayProps {
   readonly teamName: string;
   readonly teamLogoUrl: string;
   readonly teamScore: number | null;
+  readonly teamRecord: string;
   readonly teamDivisionRank: string;
   readonly teamConferenceAbbr: string;
   readonly teamDivisionName: string;
@@ -18,11 +19,12 @@ const GameRowDisplay: FC<GameRowDisplayProps> = ({
   teamName,
   teamLogoUrl,
   teamScore,
+  teamRecord,
   teamDivisionRank,
   teamConferenceAbbr,
   teamDivisionName,
 }) => {
-  const teamStanding = `${teamDivisionRank} in ${teamConferenceAbbr} ${teamDivisionName}`;
+  const teamStanding = `(${teamRecord}, ${teamDivisionRank} in ${teamConferenceAbbr} ${teamDivisionName})`;
 
   return (
     <Row align="middle">
