@@ -2,7 +2,7 @@ import { GameItem } from "./types";
 
 import { useEffect, useState, useCallback } from "react";
 
-const gamesUrl = "http://localhost:4000/api/games";
+const gamesUrl = "https://warm-gorge-48832.herokuapp.com/api/games";
 
 export const useGames = () => {
   const [games, setGames] = useState<GameItem[]>([]);
