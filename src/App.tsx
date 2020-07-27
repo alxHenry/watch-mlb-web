@@ -7,6 +7,7 @@ import { useGames } from "./api/games/useGames";
 import { Row, Spin } from "antd";
 
 const spinnerContainerStyle = { marginTop: "8%" };
+const containerStyle = { width: "100%", maxWidth: "800px", margin: "auto" };
 
 const App: FC = () => {
   // const games = [getMockGame(), getMockGame(), getMockGame()];
@@ -20,7 +21,7 @@ const App: FC = () => {
       </Row>
     );
   } else {
-    return <div>{cards}</div>;
+    return <div style={containerStyle}>{cards}</div>;
   }
 };
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { GameItem } from "../../api/games/types";
-import { Row } from "antd";
+import { Row, Col } from "antd";
 
 interface GameCurrentDataRowDisplayProps {
   readonly game: GameItem;
@@ -11,6 +11,7 @@ const appendCurrentStat = (stats: string, toAppend: string) => {
   return stats.concat(leadingSpace, toAppend);
 };
 
+const currentDataContainer = { overflow: "hidden", textOverflow: "ellipsis" } as React.CSSProperties;
 const subTextStyle = { fontSize: "12px", color: "#a5a6a7", whiteSpace: "pre" } as React.CSSProperties;
 
 const GameCurrentDataRowDisplay: FC<GameCurrentDataRowDisplayProps> = ({ game }) => {
@@ -31,14 +32,14 @@ const GameCurrentDataRowDisplay: FC<GameCurrentDataRowDisplayProps> = ({ game })
     currentGameDataText = appendCurrentStat(currentGameDataText, savingPitcherText);
   }
 
-  if (game.currentBatterName) {
-    const currentBatterText = `B: ${game.currentBatterName}`;
-    currentGameDataText = appendCurrentStat(currentGameDataText, currentBatterText);
-  }
-
   if (game.currentPitcherName) {
     const currentPitcherText = `P: ${game.currentPitcherName}`;
     currentGameDataText = appendCurrentStat(currentGameDataText, currentPitcherText);
+  }
+
+  if (game.currentBatterName) {
+    const currentBatterText = `B: ${game.currentBatterName}`;
+    currentGameDataText = appendCurrentStat(currentGameDataText, currentBatterText);
   }
 
   if (game.homePitcherName) {
@@ -54,7 +55,13 @@ const GameCurrentDataRowDisplay: FC<GameCurrentDataRowDisplayProps> = ({ game })
   if (!currentGameDataText) {
     return null;
   } else {
-    return <Row style={subTextStyle}>{currentGameDataText}</Row>;
+    return (
+      <Row style={subTextStyle}>
+        <Col span={24} style={currentDataContainer}>
+          <span>{currentGameDataText}</span>
+        </Col>
+      </Row>
+    );
   }
 };
 

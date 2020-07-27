@@ -28,7 +28,7 @@ const GameRowDisplay: FC<GameRowDisplayProps> = ({
 
   return (
     <Row align="middle">
-      <Col span={20}>
+      <Col span={22}>
         <Row align="middle">
           <Col>
             <img src={teamLogoUrl} alt={teamName} style={logoStyle} />
@@ -39,7 +39,7 @@ const GameRowDisplay: FC<GameRowDisplayProps> = ({
           </Col>
         </Row>
       </Col>
-      <Col span={4} style={textStyle}>
+      <Col span={2} style={textStyle}>
         {teamScore ?? ""}
       </Col>
     </Row>
