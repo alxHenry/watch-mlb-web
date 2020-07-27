@@ -16,4 +16,11 @@ export interface GameItem {
   readonly statusDisplay: string;
   readonly homeStreamUrl: string;
   readonly awayStreamUrl: string;
+  readonly winningPitcherName?: string;
+  readonly losingPitcherName?: string;
+  readonly savingPitcherName?: string;
+  readonly currentBatterName?: string;
+  readonly currentPitcherName?: string;
+  readonly homePitcherName?: string;
+  readonly awayPitcherName?: string;
 }

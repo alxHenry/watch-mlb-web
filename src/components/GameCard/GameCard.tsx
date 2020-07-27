@@ -1,14 +1,16 @@
 import React, { FC } from "react";
-import { Card } from "antd";
+import { Card, Divider } from "antd";
 import { GameItem } from "../../api/games/types";
 import StreamLinks from "./StreamLinks";
 import GameRowDisplay from "./GameRowDisplay";
+import GameCurrentDataRowDisplay from "./GameCurrentDataRowDisplay";
 
 interface GameCardProps {
   readonly game: GameItem;
 }
 
 const cardStyle = { margin: "24px" };
+const dividerStyle = { margin: "8px 0" };
 
 const GameCard: FC<GameCardProps> = ({ game }) => {
   const watchLinks = <StreamLinks homeStreamUrl={game.homeStreamUrl} awayStreamUrl={game.awayStreamUrl} />;
@@ -33,6 +35,8 @@ const GameCard: FC<GameCardProps> = ({ game }) => {
         teamDivisionName={game.awayTeamDivisionName}
         teamDivisionRank={game.awayTeamDivisionRank}
       />
+      <Divider type="horizontal" style={dividerStyle} />
+      <GameCurrentDataRowDisplay game={game} />
     </Card>
   );
 };
