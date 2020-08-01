@@ -1,3 +1,8 @@
+export enum SportsLeague {
+  NBA = "NBA",
+  MLB = "MLB",
+}
+
 export interface GameItem {
   readonly homeTeamFullName: string;
   readonly homeTeamScore: number | null;

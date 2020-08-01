@@ -14,6 +14,20 @@ const dividerStyle = { margin: "8px 0" };
 
 const GameCard: FC<GameCardProps> = ({ game }) => {
   const watchLinks = <StreamLinks homeStreamUrl={game.homeStreamUrl} awayStreamUrl={game.awayStreamUrl} />;
+  const hasCurrentGameData =
+    game.winningPitcherName ||
+    game.losingPitcherName ||
+    game.savingPitcherName ||
+    game.currentPitcherName ||
+    game.currentBatterName ||
+    game.homePitcherName ||
+    game.awayPitcherName;
+  const currentGameDisplay = hasCurrentGameData ? (
+    <>
+      <Divider type="horizontal" style={dividerStyle} />
+      <GameCurrentDataRowDisplay game={game} />
+    </>
+  ) : null;
 
   return (
     <Card size="small" title={game.statusDisplay} style={cardStyle} extra={watchLinks}>
@@ -35,8 +49,7 @@ const GameCard: FC<GameCardProps> = ({ game }) => {
         teamDivisionName={game.awayTeamDivisionName}
         teamDivisionRank={game.awayTeamDivisionRank}
       />
-      <Divider type="horizontal" style={dividerStyle} />
-      <GameCurrentDataRowDisplay game={game} />
+      {currentGameDisplay}
     </Card>
   );
 };
