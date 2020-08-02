@@ -9,7 +9,9 @@ const containerStyle = { width: "100%", maxWidth: "800px", margin: "auto" };
 
 const PageMLB: FC = () => {
   const { games, loading } = useGames(SportsLeague.MLB);
-  const cards = games.map((game) => <GameCard game={game} key={`${game.homeTeamFullName}-${game.awayTeamFullName}`} />);
+  const cards = games.map((game, index) => (
+    <GameCard game={game} key={`${game.homeTeamFullName}-${game.awayTeamFullName}-${index}`} />
+  ));
 
   if (loading) {
     return (
