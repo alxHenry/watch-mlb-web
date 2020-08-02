@@ -17,12 +17,20 @@ const getGamesUrl = (league: SportsLeague) => {
 export const useGames = (league: SportsLeague) => {
   const [games, setGames] = useState<GameItem[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const getGames = useCallback(async () => {
     setLoading(true);
 
-    const response = await fetch(getGamesUrl(league));
-    const gamesData = (await response.json()) as GameItem[];
+    let gamesData: GameItem[];
+    try {
+      const response = await fetch(getGamesUrl(league));
+      gamesData = (await response.json()) as GameItem[];
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+      return;
+    }
 
     setGames(gamesData);
     setLoading(false);
@@ -32,5 +40,5 @@ export const useGames = (league: SportsLeague) => {
     getGames();
   }, [getGames]);
 
-  return { games, loading };
+  return { games, loading, error };
 };

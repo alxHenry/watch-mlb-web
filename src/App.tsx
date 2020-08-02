@@ -2,9 +2,8 @@ import "antd/dist/antd.css";
 
 import React, { FC, useState, useCallback } from "react";
 import { Menu } from "antd";
-import PageMLB from "./components/PageMLB";
 import { SportsLeague } from "./api/games/types";
-import PageNBA from "./components/PageNBA";
+import PageGames from "./components/PageGames";
 
 const logoStyles = { marginRight: "8px", paddingBottom: "3px" };
 
@@ -29,16 +28,6 @@ const App: FC = () => {
     setLeague(e.key);
   }, []);
 
-  let page;
-  switch (league) {
-    case SportsLeague.NBA:
-      page = <PageNBA />;
-      break;
-    case SportsLeague.MLB:
-    default:
-      page = <PageMLB />;
-  }
-
   return (
     <>
       <Menu onClick={handleMenuClick} selectedKeys={[league]} mode="horizontal">
@@ -49,7 +38,7 @@ const App: FC = () => {
           NBA
         </Menu.Item>
       </Menu>
-      {page}
+      <PageGames league={league} />
     </>
   );
 };
