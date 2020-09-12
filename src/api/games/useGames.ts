@@ -1,6 +1,6 @@
 import { GameItem, SportsLeague } from "./types";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const baseUrl = "https://warm-gorge-48832.herokuapp.com";
 const devUrl = "http://localhost:4000";
@@ -15,6 +15,7 @@ const getGamesUrl = (league: SportsLeague) => {
 };
 
 export const useGames = (league: SportsLeague) => {
+  const fetchedLeague = useRef(league);
   const [games, setGames] = useState<GameItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -32,13 +33,16 @@ export const useGames = (league: SportsLeague) => {
       return;
     }
 
-    setGames(gamesData);
-    setLoading(false);
+    if (league === fetchedLeague.current) {
+      setGames(gamesData);
+      setLoading(false);
+    }
   }, [league]);
 
   useEffect(() => {
+    fetchedLeague.current = league;
     getGames();
-  }, [getGames]);
+  }, [getGames, league]);
 
   return { games, loading, error };
 };
