@@ -1,4 +1,4 @@
-import { GameItem, SportsLeague } from "./types";
+import { ResponseData, SportsLeague } from "./types";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
@@ -18,17 +18,17 @@ const getGamesUrl = (league: SportsLeague) => {
 
 export const useGames = (league: SportsLeague) => {
   const fetchedLeague = useRef(league);
-  const [games, setGames] = useState<GameItem[]>([]);
+  const [data, setData] = useState<ResponseData>({ games: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const getGames = useCallback(async () => {
     setLoading(true);
 
-    let gamesData: GameItem[];
+    let responseData: ResponseData;
     try {
       const response = await fetch(getGamesUrl(league));
-      gamesData = (await response.json()) as GameItem[];
+      responseData = (await response.json()) as ResponseData;
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -36,7 +36,7 @@ export const useGames = (league: SportsLeague) => {
     }
 
     if (league === fetchedLeague.current) {
-      setGames(gamesData);
+      setData(responseData);
       setLoading(false);
     }
   }, [league]);
@@ -46,5 +46,5 @@ export const useGames = (league: SportsLeague) => {
     getGames();
   }, [getGames, league]);
 
-  return { games, loading, error };
+  return { data, loading, error };
 };
