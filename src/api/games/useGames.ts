@@ -7,6 +7,8 @@ const devUrl = "http://localhost:4000";
 
 const getGamesUrl = (league: SportsLeague) => {
   switch (league) {
+    case SportsLeague.NFL:
+      return `${baseUrl}/api/nfl/games`;
     case SportsLeague.MLB:
       return `${baseUrl}/api/mlb/games`;
     case SportsLeague.NBA:

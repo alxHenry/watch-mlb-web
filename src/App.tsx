@@ -7,6 +7,13 @@ import PageGames from "./components/PageGames";
 
 const logoStyles = { marginRight: "8px", paddingBottom: "3px" };
 
+const nflLogo = (
+  <img
+    src="https://www.bing.com/th?id=ALBUDBC69EF24CA0FCCF40480846E16876198318B6BBD5EBEED1F239E2172CA29E7FB&w=28&h=28"
+    alt="NFL"
+    style={logoStyles}
+  />
+);
 const mlbLogo = (
   <img
     src="https://www.bing.com/th?id=ALBUD5CE4B8FC8A1D6200445D98037887C4202AF3D6884CA2F5225FF17131AD7CA3D4&w=28&h=28"
@@ -23,7 +30,7 @@ const nbaLogo = (
 );
 
 const App: FC = () => {
-  const [league, setLeague] = useState(SportsLeague.MLB);
+  const [league, setLeague] = useState(SportsLeague.NFL);
   const handleMenuClick = useCallback((e: any) => {
     setLeague(e.key);
   }, []);
@@ -31,6 +38,9 @@ const App: FC = () => {
   return (
     <>
       <Menu onClick={handleMenuClick} selectedKeys={[league]} mode="horizontal">
+        <Menu.Item key={SportsLeague.NFL} icon={nflLogo}>
+          NFL
+        </Menu.Item>
         <Menu.Item key={SportsLeague.MLB} icon={mlbLogo}>
           MLB
         </Menu.Item>
