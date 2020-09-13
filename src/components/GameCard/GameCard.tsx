@@ -13,7 +13,13 @@ const cardStyle = { margin: "24px" };
 const dividerStyle = { margin: "8px 0" };
 
 const GameCard: FC<GameCardProps> = ({ game }) => {
-  const watchLinks = <StreamLinks homeStreamUrl={game.homeStreamUrl} awayStreamUrl={game.awayStreamUrl} />;
+  const watchLinks = (
+    <StreamLinks
+      homeStreamUrl={game.homeStreamUrl}
+      awayStreamUrl={game.awayStreamUrl}
+      altStreamUrl={game.altStreamUrl}
+    />
+  );
   const hasCurrentGameData =
     game.winningPitcherName ||
     game.losingPitcherName ||

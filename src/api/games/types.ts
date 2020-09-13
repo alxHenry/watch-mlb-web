@@ -22,6 +22,7 @@ export interface GameItem {
   readonly statusDisplay: string;
   readonly homeStreamUrl: string;
   readonly awayStreamUrl: string;
+  readonly altStreamUrl?: string;
   readonly winningPitcherName?: string;
   readonly losingPitcherName?: string;
   readonly savingPitcherName?: string;
