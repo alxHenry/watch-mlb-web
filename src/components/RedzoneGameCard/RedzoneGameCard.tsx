@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { Button, Card, Row, Col } from "antd";
 
 const cardStyle = { margin: "24px", backgroundColor: "#D7001D" };
-const redzoneTextStyle = { color: "white", fontWeight: 800, fontSize: "28px" };
-const watchTextStyle = { color: "#2f4fdb", fontWeight: 800 };
+const redzoneTextStyle = { color: "white", fontWeight: 600, fontSize: "28px" };
+const watchTextStyle = { color: "#2f4fdb", fontWeight: 600 };
 const linkProps = { target: "_blank", rel: "noreferrer noopener" };
 
 interface RedzoneGameCardProps {
@@ -20,14 +20,14 @@ const RedzoneGameCard: FC<RedzoneGameCardProps> = ({ hansonStreamUrl, sicilianoS
       <Col span={5}>
         <Button style={watchTextStyle}>
           <a href={hansonStreamUrl} {...linkProps}>
-            Hanson
+            Enter
           </a>
         </Button>
       </Col>
       <Col span={5}>
         <Button style={watchTextStyle}>
           <a href={sicilianoStreamUrl} {...linkProps}>
-            Siciliano
+            Alt
           </a>
         </Button>
       </Col>
