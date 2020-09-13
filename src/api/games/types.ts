@@ -35,6 +35,7 @@ export interface GameItem {
 interface RedzoneItem {
   readonly hansonStreamUrl: string;
   readonly sicilianoStreamUrl: string;
+  readonly altStreamUrl: string;
 }
 
 export interface ResponseData {

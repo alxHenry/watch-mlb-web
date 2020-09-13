@@ -25,6 +25,7 @@ const PageGames: FC<PageGamesProps> = ({ league }) => {
         <RedzoneGameCard
           hansonStreamUrl={data.redzone.hansonStreamUrl}
           sicilianoStreamUrl={data.redzone.sicilianoStreamUrl}
+          altStreamUrl={data.redzone.altStreamUrl}
         />
       );
       gameCards = [redzoneCard, ...gameCards];
