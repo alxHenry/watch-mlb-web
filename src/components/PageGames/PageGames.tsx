@@ -21,7 +21,12 @@ const PageGames: FC<PageGamesProps> = ({ league }) => {
     ));
 
     if (league === SportsLeague.NFL && data.redzone) {
-      const redzoneCard = <RedzoneGameCard streamUrl={data.redzone.url} />;
+      const redzoneCard = (
+        <RedzoneGameCard
+          hansonStreamUrl={data.redzone.hansonStreamUrl}
+          sicilianoStreamUrl={data.redzone.sicilianoStreamUrl}
+        />
+      );
       gameCards = [redzoneCard, ...gameCards];
     }
 

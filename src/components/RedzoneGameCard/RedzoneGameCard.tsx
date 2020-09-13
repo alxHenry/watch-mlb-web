@@ -7,19 +7,27 @@ const watchTextStyle = { color: "#2f4fdb", fontWeight: 800 };
 const linkProps = { target: "_blank", rel: "noreferrer noopener" };
 
 interface RedzoneGameCardProps {
-  readonly streamUrl: string;
+  readonly hansonStreamUrl: string;
+  readonly sicilianoStreamUrl: string;
 }
 
-const RedzoneGameCard: FC<RedzoneGameCardProps> = ({ streamUrl }) => (
+const RedzoneGameCard: FC<RedzoneGameCardProps> = ({ hansonStreamUrl, sicilianoStreamUrl }) => (
   <Card style={cardStyle}>
     <Row align="middle">
-      <Col span={21} style={redzoneTextStyle}>
+      <Col span={14} style={redzoneTextStyle}>
         NFL REDZONE
       </Col>
-      <Col span={3}>
+      <Col span={5}>
         <Button style={watchTextStyle}>
-          <a href={streamUrl} {...linkProps}>
-            Enter
+          <a href={hansonStreamUrl} {...linkProps}>
+            Hanson
+          </a>
+        </Button>
+      </Col>
+      <Col span={5}>
+        <Button style={watchTextStyle}>
+          <a href={sicilianoStreamUrl} {...linkProps}>
+            Siciliano
           </a>
         </Button>
       </Col>

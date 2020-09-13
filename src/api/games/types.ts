@@ -31,13 +31,12 @@ export interface GameItem {
   readonly awayPitcherName?: string;
 }
 
+interface RedzoneItem {
+  readonly hansonStreamUrl: string;
+  readonly sicilianoStreamUrl: string;
+}
+
 export interface ResponseData {
   readonly games: GameItem[];
   readonly redzone?: RedzoneItem;
-}
-
-type RedzoneGameItemId = "nfl-redzone";
-export interface RedzoneItem {
-  readonly id: RedzoneGameItemId;
-  readonly url: string;
 }
