@@ -15,24 +15,26 @@ interface RedzoneGameCardProps {
 const RedzoneGameCard: FC<RedzoneGameCardProps> = ({ hansonStreamUrl, sicilianoStreamUrl, altStreamUrl }) => (
   <Card style={cardStyle}>
     <Row align="middle">
-      <Col span={12} style={redzoneTextStyle}>
+      <Col span={24} style={redzoneTextStyle}>
         NFL REDZONE
       </Col>
-      <Col span={4}>
+    </Row>
+    <Row gutter={8}>
+      <Col>
         <Button style={watchTextStyle}>
           <a href={hansonStreamUrl} {...linkProps}>
-            Enter
+            Primary
           </a>
         </Button>
       </Col>
-      <Col span={4}>
+      <Col>
         <Button style={watchTextStyle}>
           <a href={sicilianoStreamUrl} {...linkProps}>
             Alt 1
           </a>
         </Button>
       </Col>
-      <Col span={4}>
+      <Col>
         <Button style={watchTextStyle}>
           <a href={altStreamUrl} {...linkProps}>
             Alt 2
