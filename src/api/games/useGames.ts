@@ -2,8 +2,7 @@ import { ResponseData, SportsLeague } from "./types";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const baseUrl = "https://warm-gorge-48832.herokuapp.com";
-const devUrl = "http://localhost:4000";
+const baseUrl = "https://watch-sports.apps.alxhenry.work";
 
 const getGamesUrl = (league: SportsLeague) => {
   switch (league) {
