@@ -12,6 +12,8 @@ const getGamesUrl = (league: SportsLeague) => {
       return `${baseUrl}/api/mlb/games`;
     case SportsLeague.NBA:
       return `${baseUrl}/api/nba/games`;
+    case SportsLeague.EPL:
+      return `${baseUrl}/api/epl/games`;
   }
 };
 

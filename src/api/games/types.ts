@@ -2,6 +2,7 @@ export enum SportsLeague {
   NBA = "NBA",
   MLB = "MLB",
   NFL = "NFL",
+  EPL = "EPL",
 }
 
 export interface GameItem {

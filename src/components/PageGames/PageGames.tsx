@@ -23,6 +23,7 @@ const PageGames: FC<PageGamesProps> = ({ league }) => {
     if (league === SportsLeague.NFL && data.redzone) {
       const redzoneCard = (
         <RedzoneGameCard
+          key="redzone-game-card"
           hansonStreamUrl={data.redzone.hansonStreamUrl}
           sicilianoStreamUrl={data.redzone.sicilianoStreamUrl}
           altStreamUrl={data.redzone.altStreamUrl}

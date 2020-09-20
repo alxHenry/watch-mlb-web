@@ -28,6 +28,13 @@ const nbaLogo = (
     style={logoStyles}
   />
 );
+const eplLogo = (
+  <img
+    src="https://www.bing.com/th?id=ALBUD9771FE318A6ECAC20C57DCD5CB590E16EEE14A3DD27458D15B661A662712197E&w=28&h=28"
+    alt="NBA"
+    style={logoStyles}
+  />
+);
 
 const App: FC = () => {
   const [league, setLeague] = useState(SportsLeague.NFL);
@@ -46,6 +53,9 @@ const App: FC = () => {
         </Menu.Item>
         <Menu.Item key={SportsLeague.NBA} icon={nbaLogo}>
           NBA
+        </Menu.Item>
+        <Menu.Item key={SportsLeague.EPL} icon={eplLogo}>
+          EPL
         </Menu.Item>
       </Menu>
       <PageGames league={league} />
